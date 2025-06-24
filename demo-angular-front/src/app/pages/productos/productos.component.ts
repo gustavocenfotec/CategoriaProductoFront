@@ -8,12 +8,13 @@ import { ActivatedRoute } from '@angular/router';
 import { ProductListComponent } from '../../components/products/product-list/product-list.component';
 import { IProduct } from '../../interfaces';
 import { ProductosService } from '../../services/productos.service';
+import { ProductFormComponent } from '../../components/products/product-form/product-form.component';
 
 @Component({
   selector: 'app-productos',
   standalone: true,
   imports: [ProductListComponent,PaginationComponent,
-    ModalComponent],
+    ModalComponent,ProductFormComponent],
   templateUrl: './productos.component.html',
   styleUrl: './productos.component.scss'
 })

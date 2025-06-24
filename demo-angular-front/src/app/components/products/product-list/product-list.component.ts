@@ -1,5 +1,5 @@
 import { Component, EventEmitter, inject, Input, Output } from "@angular/core";
-import { IProduct, ISportTeam } from "../../../interfaces";
+import { IProduct } from "../../../interfaces";
 import { AuthService } from "../../../services/auth.service";
 import { ActivatedRoute } from "@angular/router";
 
