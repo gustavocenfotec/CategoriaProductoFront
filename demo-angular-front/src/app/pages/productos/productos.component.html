@@ -1,0 +1,31 @@
+<p>Products</p>
+
+<!-- @if (areActionsAvailable) {
+  <app-sport-team-form
+    [form]="teamForm"
+    (callSaveMethod)="saveTeam($event)"
+  />
+
+} -->
+<app-product-list
+  [pProductList]="productService.productos$()"
+  (callUpdateModalMethod)="openEditProductModal($event)"
+  (callDeleteMethod)="deleteProduct($event)"
+/>
+<!-- <app-pagination
+  [service]="teamService"
+/> -->
+
+
+<!-- <ng-template #editTeamModal>
+  <app-modal
+    [hideFooter]="true"
+  >
+    <div>
+      <app-sport-team-form
+        [form]="teamForm"
+        (callUpdateMethod)="updateTeam($event)"
+      />
+    </div>
+  </app-modal>
+</ng-template> -->

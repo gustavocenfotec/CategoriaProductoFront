@@ -14,6 +14,7 @@ import { GamesComponent } from './pages/games/games.component';
 import { OrdersComponent } from './pages/orders/orders.component';
 import { PreferenceListPageComponent } from './pages/preferenceList/preference-list.component';
 import { SportTeamComponent } from './pages/sport-team/sport-team.component';
+import { ProductosComponent } from './pages/productos/productos.component';
 
 export const routes: Routes = [
   {
@@ -107,6 +108,19 @@ export const routes: Routes = [
             IRoleType.user,
           ],
           name: 'orders',
+          showInSidebar: true
+        }
+      },
+      {
+        path: 'products',
+        component: ProductosComponent,
+        data: { 
+          authorities: [
+            IRoleType.admin, 
+            IRoleType.superAdmin,
+            IRoleType.user,
+          ],
+          name: 'products',
           showInSidebar: true
         }
       },
