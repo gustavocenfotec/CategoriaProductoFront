@@ -47,6 +47,7 @@ export class BaseService<T> {
   }
 
   public del(id: any): Observable<IResponse<T>> {
+    console.log('Deleting item with id:', id);
     return this.http.delete<IResponse<T>>(this.source + '/' + id);
   }
   

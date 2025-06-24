@@ -61,6 +61,7 @@ export class ProductosService extends BaseService<IProduct> {
     }
   
     delete(item: IProduct) {
+      console.log("Servicio Producto", item);
       this.del(item.id).subscribe({
         next: (response: IResponse<IProduct>) => {
           this.alertService.displayAlert('success', response.message, 'center', 'top', ['success-snackbar']);

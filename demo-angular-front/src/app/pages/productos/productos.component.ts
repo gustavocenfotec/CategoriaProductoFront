@@ -60,6 +60,7 @@ export class ProductosComponent {
   
 
     deleteProduct(item: IProduct) {
+      console.log("deleteProduct Boton llega objeto", item);
       this.productService.delete(item);
     }
   
