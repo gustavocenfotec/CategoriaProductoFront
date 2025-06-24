@@ -113,3 +113,9 @@ export interface IProduct {
   cantidad?: number;
 
 }
+
+export interface ICategory {
+  id?: number;
+  nombre?: string;
+  descripcion?: string;
+}
