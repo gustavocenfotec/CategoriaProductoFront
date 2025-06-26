@@ -111,7 +111,7 @@ export interface IProduct {
   descripcion?: string;
   precio?: number;
   cantidad?: number;
-
+  categoria?: ICategory;
 }
 
 export interface ICategory {

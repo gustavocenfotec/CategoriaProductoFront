@@ -6,9 +6,11 @@ import { ModalComponent } from '../../components/modal/modal.component';
 import { AuthService } from '../../services/auth.service';
 import { ActivatedRoute } from '@angular/router';
 import { ProductListComponent } from '../../components/products/product-list/product-list.component';
-import { IProduct } from '../../interfaces';
+import { ICategory, IProduct } from '../../interfaces';
 import { ProductosService } from '../../services/productos.service';
 import { ProductFormComponent } from '../../components/products/product-form/product-form.component';
+import { CategoriaService } from '../../services/categoria.service';
+import { consumerPollProducersForChange } from '@angular/core/primitives/signals';
 
 @Component({
   selector: 'app-productos',
@@ -21,14 +23,21 @@ import { ProductFormComponent } from '../../components/products/product-form/pro
 export class ProductosComponent {
 
     public pProductList: IProduct[] = []
+    public pCategoryList: ICategory[] = [];
+    public pcategory: ICategory = {
+      id: 0,
+      nombre: ''}
+
     public productService: ProductosService = inject(ProductosService);
+    public categoryService: CategoriaService = inject(CategoriaService);
     public fb: FormBuilder = inject(FormBuilder);
     public productForm = this.fb.group({
       id: [''],
       nombre: ['', Validators.required],
       descripcion: ['', Validators.required],
       precio: ['', Validators.required],
-      cantidad: ['', Validators.required]
+      cantidad: ['', Validators.required],
+      categoria: ['']
     });
     public modalService: ModalService = inject(ModalService);
     @ViewChild('editProductModal') public editProductModal: any;
@@ -46,9 +55,13 @@ export class ProductosComponent {
   
     constructor() {
       this.productService.getAll();
+      this.categoryService.getAll();
+      console.log("Categoris",this.pCategoryList);
     }
 
     saveProduct(item: IProduct) {
+      
+      // console.log("saveProduct Boton llega objeto", item);
       this.productService.save(item);
     }
 
@@ -72,6 +85,8 @@ export class ProductosComponent {
         descripcion: product.descripcion,
         precio: JSON.stringify(product.precio),
         cantidad: JSON.stringify(product.cantidad),
+        categoria:(product.categoria?.nombre),
+        
       });
       this.modalService.displayModal('lg', this.editProductModal);
     }

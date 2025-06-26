@@ -1,5 +1,5 @@
 import { Component, EventEmitter, inject, Input, Output } from "@angular/core";
-import { IProduct } from "../../../interfaces";
+import { ICategory, IProduct } from "../../../interfaces";
 import { AuthService } from "../../../services/auth.service";
 import { ActivatedRoute } from "@angular/router";
 
@@ -13,6 +13,7 @@ import { ActivatedRoute } from "@angular/router";
 })
 export class ProductListComponent {
   @Input() pProductList: IProduct[] = [];
+  @Input() pCategoryList: ICategory[] = [];
   @Output() callUpdateModalMethod: EventEmitter<IProduct> = new EventEmitter<IProduct>();
   @Output() callDeleteMethod: EventEmitter<IProduct> = new EventEmitter<IProduct>();
   public authService: AuthService = inject(AuthService);

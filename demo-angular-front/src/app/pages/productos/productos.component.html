@@ -3,6 +3,7 @@
 @if (areActionsAvailable) {
 <app-product-form
     [form]="productForm"
+    [pCategoryList]="categoryService.categories$()"
     (callSaveMethod)="saveProduct($event)"
   />
 
