@@ -56,12 +56,11 @@ export class ProductosComponent {
     constructor() {
       this.productService.getAll();
       this.categoryService.getAll();
-      console.log("Categoris",this.pCategoryList);
+      console.log("Productos",this.pProductList);
     }
 
     saveProduct(item: IProduct) {
       
-      // console.log("saveProduct Boton llega objeto", item);
       this.productService.save(item);
     }
 

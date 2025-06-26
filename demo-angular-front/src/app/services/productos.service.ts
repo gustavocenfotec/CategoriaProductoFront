@@ -27,6 +27,7 @@ export class ProductosService extends BaseService<IProduct> {
           this.search = { ...this.search, ...response.meta };
           this.totalItems = Array.from({ length: this.search.totalPages ? this.search.totalPages : 0 }, (_, i) => i + 1);
           this.productsListSignal.set(response.data);
+          console.log("Productos Sevice", this.productsListSignal());
         },
         error: (err: any) => {
           console.error('error', err);
