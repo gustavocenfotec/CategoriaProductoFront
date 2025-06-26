@@ -84,7 +84,9 @@ export class ProductosComponent {
         descripcion: product.descripcion,
         precio: JSON.stringify(product.precio),
         cantidad: JSON.stringify(product.cantidad),
-        categoria:(product.categoria?.nombre),
+        categoria:(product.categoria?.nombre)
+
+        
         
       });
       this.modalService.displayModal('lg', this.editProductModal);

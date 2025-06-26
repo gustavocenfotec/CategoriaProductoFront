@@ -33,12 +33,11 @@
     <div class="mb-2 col-4">
         <label class="mb-1" for="categoria">Category*</label>
         <select id="categoria" formControlName="categoria" class="form-select">
-          <option [ngValue]="null">Select a category</option>
+
           @for (cat of pCategoryList; track cat.id) {
             <option [ngValue]="cat">{{ cat.nombre }}</option>
           }
         </select>
-
         @if (form.controls['categoria'].invalid && (form.controls['categoria'].dirty || form.controls['categoria'].touched)) {
           <p class="text-danger my-1">Category is required</p>
         }
