@@ -24,9 +24,6 @@ export class ProductosComponent {
 
     public pProductList: IProduct[] = []
     public pCategoryList: ICategory[] = [];
-    public pcategory: ICategory = {
-      id: 0,
-      nombre: ''}
 
     public productService: ProductosService = inject(ProductosService);
     public categoryService: CategoriaService = inject(CategoriaService);
