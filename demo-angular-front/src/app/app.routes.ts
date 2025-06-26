@@ -10,10 +10,6 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { GuestGuard } from './guards/guest.guard';
 import { IRoleType } from './interfaces';
 import { ProfileComponent } from './pages/profile/profile.component';
-import { GamesComponent } from './pages/games/games.component';
-import { OrdersComponent } from './pages/orders/orders.component';
-import { PreferenceListPageComponent } from './pages/preferenceList/preference-list.component';
-import { SportTeamComponent } from './pages/sport-team/sport-team.component';
 import { ProductosComponent } from './pages/productos/productos.component';
 import { CategoriaComponent } from './pages/categoria/categoria.component';
 
@@ -52,7 +48,7 @@ export const routes: Routes = [
         component: UsersComponent,
         canActivate:[AdminRoleGuard],
         data: { 
-          authorities: [ 
+          authorities: [
             IRoleType.superAdmin
           ],
           name: 'Users',
@@ -62,18 +58,21 @@ export const routes: Routes = [
       {
         path: 'dashboard',
         component: DashboardComponent,
+        canActivate: [AuthGuard],
         data: { 
-          authorities: [ 
+          authorities: [
+ 
             IRoleType.superAdmin,
             IRoleType.user
           ],
           name: 'Dashboard',
-          showInSidebar: true
+          showInSidebar: false
         }
       },
       {
         path: 'profile',
         component: ProfileComponent,
+        canActivate: [AuthGuard],
         data: { 
           authorities: [
             IRoleType.superAdmin,
@@ -84,32 +83,9 @@ export const routes: Routes = [
         }
       },
       {
-        path: 'games',
-        component: GamesComponent,
-        data: { 
-          authorities: [
-            IRoleType.superAdmin,
-            IRoleType.user,
-          ],
-          name: 'games',
-          showInSidebar: true
-        }
-      },
-      {
-        path: 'orders',
-        component: OrdersComponent,
-        data: { 
-          authorities: [
-            IRoleType.superAdmin,
-            IRoleType.user,
-          ],
-          name: 'orders',
-          showInSidebar: true
-        }
-      },
-      {
         path: 'products',
         component: ProductosComponent,
+        canActivate: [AuthGuard],
         data: { 
           authorities: [ 
             IRoleType.superAdmin,
@@ -122,6 +98,7 @@ export const routes: Routes = [
       {
         path: 'categories',
         component: CategoriaComponent,
+        canActivate: [AuthGuard],
         data: { 
           authorities: [
             IRoleType.superAdmin,
@@ -131,30 +108,7 @@ export const routes: Routes = [
           showInSidebar: true
         }
       },
-      {
-        path: 'preference-list',
-        component: PreferenceListPageComponent,
-        data: { 
-          authorities: [
-            IRoleType.superAdmin,
-            IRoleType.user,
-          ],
-          name: 'preference list',
-          showInSidebar: true
-        }
-      },
-      {
-        path: 'sport-team',
-        component: SportTeamComponent,
-        data: { 
-          authorities: [
-            IRoleType.superAdmin,
-            IRoleType.user,
-          ],
-          name: 'Sport Team',
-          showInSidebar: true
-        }
-      },
+     
     ],
   },
 ];
