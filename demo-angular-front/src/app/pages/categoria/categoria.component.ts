@@ -45,6 +45,7 @@ export class CategoriaComponent {
     
       constructor() {
         this.categoryService.getAll();
+        console.log("CategoriaComponent constructor", this.categoryService.getAll());
       }
   
       saveCategory(item: ICategory) {
